@@ -1,0 +1,31 @@
+<!-- <p>register works!</p> -->
+<div class="whole-container">
+    <div class="left">
+        <img src="../../assets/5_SKATEBOARD_PROTESTER.png" alt="">
+    </div>
+    <div class="right">
+        <h3>Hello, Welcome</h3>
+        <p>Enter to digital learning</p>
+        <div class="form-item">
+            <form [formGroup]="inputForm">
+                <label for="">Org name</label>
+                <input type="text" class="input-type" pInputText formControlName="name" placeholder="Name" />
+                <label for="">Email</label>
+                <input type="email" class="input-type" pInputText formControlName="email" placeholder="Email" />
+
+                <label for="">Password</label>
+                <input type="password" class="input-type" pInputText formControlName="password" placeholder="Password" />
+                <label for="">MobileNo</label>
+                <input class="input-type" pInputText pKeyFilter="num" placeholder="MobileNo" />
+                <!-- <p-button label="Primary"></p-button> -->
+            </form>
+
+            <p-button label="Submit" (click)="onSubmit()"></p-button> 
+
+            <!-- <div class="sub-button">
+            </div> -->
+            <p>Already Have an Account? <a href="#">Login</a></p>
+        </div>
+        
+    </div>
+</div>

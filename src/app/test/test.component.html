@@ -1,0 +1,160 @@
+<p>test works!</p>
+
+<h1>Textarea</h1>
+<!-- <textarea cols="30" rows="5" pInputTextarea [(ngModel)]="value"></textarea> -->
+
+
+<form [formGroup]="textBoxForm">
+    <textarea cols="30" rows="5" pInputTextarea formControlName="textarea" placeholder="Teatarea"></textarea><br>
+    <input type="text" pInputText formControlName="name" placeholder="Name"><br>
+
+
+</form>
+<!-- <p-button label="Submit" (click)="onSubmit()"></p-button> -->
+
+<div class="card">
+    <p-toast></p-toast>
+    <button type="button" pButton pRipple (click)="onSubmit()" label="Show" class="p-button-success"></button>
+</div>
+
+
+<br>
+
+<h1>Calender</h1>
+<!-- {{data|json}} -->
+<form action="" #myForm="ngForm">
+    <p-calendar [ngModel]="date" [showIcon]="true" name="date"></p-calendar>
+    <p>yhygty{{data|json}}</p>
+    <br>
+    <p-calendar [ngModel]="selectedDate" [minDate]="minDate" [maxDate]="maxDate" name="selectedDate"></p-calendar><br>
+
+
+</form>
+<button pButton pRipple label="Submit" class="p-button-success" (click)="onCalender(myForm.value)"></button>
+
+
+<br>
+
+<h1>Table Submit</h1>
+<form (submit)="addProduct(codeInput.value, nameInput.value, categoryInput.value, quantityInput.value)">
+    <input type="text" #codeInput placeholder="Code">
+    <input type="text" #nameInput placeholder="Name">
+    <input type="text" #categoryInput placeholder="Category">
+    <input type="number" #quantityInput placeholder="Quantity">
+    <button type="submit">Add Product</button>
+</form>
+
+<p-table [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Quantity</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+        <tr>
+            <td>{{ product.code }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.category }}</td>
+            <td>{{ product.quantity }}</td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<h1>Table click</h1>
+<form [formGroup]="tableForm">
+    <input type="text" pInputText formControlName="name" placeholder="Name"><br>
+    <input type="text" pInputText formControlName="age" placeholder="Age"><br>
+</form>
+<p-button label="Submit" (click)="addProductTable()"></p-button>
+
+<p-table [value]="productTable" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-productTable>
+        <tr>
+            <td>{{ productTable.name }}</td>
+            <td>{{ productTable.age }}</td>
+
+        </tr>
+    </ng-template>
+</p-table>
+
+<h1>Sidebar</h1>
+
+<p-sidebar [(visible)]="sidebarVisible">
+    <h3>Sidebar</h3>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </p>
+    <h1>Checkbox</h1>
+
+    <form class="flex align-items-center gap-1" [formGroup]="checkBoxGroup">
+        <p-checkbox formControlName="Checkbox" value="Tirunelveli" inputId="tvl"></p-checkbox>
+        <label for="ny">Tirunelveli</label>
+
+        <p-checkbox formControlName="Checkbox" value="Tiruchy" inputId="tir"></p-checkbox>
+        <label for="ny">Tiruchy</label>
+
+        <p-checkbox formControlName="Checkbox" value="Otp" inputId="otp"></p-checkbox>
+        <label for="ny">Otp</label>
+    </form>
+    <p-button label="Submit" (click)="onCheckBox()"></p-button>
+
+</p-sidebar>
+<p-button class="sidebar" (click)="sidebarVisible = true" label="sidebar"></p-button>
+
+
+<form [formGroup]="dropDownGroup">
+    <p-dropdown formControlName="city" [options]="cities" optionLabel="label"></p-dropdown>
+    <p-button label="Submit" (click)="onDropDown()"></p-button>
+
+</form>
+
+<h1>Overlay panel</h1>
+
+<p-overlayPanel #op>
+    <ng-template pTemplate="content">
+        <h4>Custom Content</h4>
+    </ng-template>
+</p-overlayPanel>
+<p-button (click)="op.toggle($event)" icon="pi pi-image" label="Show"></p-button>
+
+
+<h1>Dialog box</h1>
+<p-button (click)="showDialog()" icon="pi pi-external-link" label="Show"></p-button>
+<p-dialog header="Header" [(visible)]="visible" [style]="{ width: '50vw' }">
+    <ng-template pTemplate="header">
+        <span class="text-xl font-bold">Header Content</span>
+    </ng-template>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    <ng-template pTemplate="footer">
+        <p-button icon="pi pi-check" (click)="visible = false" label="Ok" styleClass="p-button-text"></p-button>
+    </ng-template>
+</p-dialog>
+
+<h1>UploadFile</h1>
+<!-- <form (ngSubmit)="uploadDocument()" #documentForm="ngForm">
+    <input type="file" name="Documents" (change)="onFileChange($event)">
+    <button type="submit" [disabled]="!selectedFile">Upload</button>
+  </form> -->
+
+
+  <form [formGroup]="documentForm" >
+    <input type="file"name="document" formControlName="document" (change)="onFileChange($event)">
+    <button p-button label="submit"  (click)="uploadDocument()"[disabled]="!documentForm.valid || !selectedFile">Upload</button>
+  </form>
+  
+  

@@ -1,0 +1,70 @@
+<!-- <p>step works!</p> -->
+
+<!-- app.component.html -->
+<p-steps [model]="steps" [activeIndex]="currentStep - 1"></p-steps>
+
+<div [ngSwitch]="currentStep">
+  <ng-container *ngSwitchCase="1">
+    <form [formGroup]="stepOneForm">
+      <h3>Step 1: Personal Information</h3>
+      <label for="">Org name</label>
+      <input type="text" class="input-type" pInputText formControlName="name" placeholder="Name" />
+      <label for="">Email</label>
+      <input type="email" class="input-type" pInputText formControlName="email" placeholder="Email" />
+
+
+
+      <!-- <p-inputText formControlName="name" placeholder="Name"></p-inputText>
+      <p-inputText formControlName="email" placeholder="Email"></p-inputText> -->
+      <button pButton type="button" label="Next" (click)="nextStep()"></button>
+    </form>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="2">
+    <form [formGroup]="stepTwoForm">
+      <h3>Step 2: Address Information</h3>
+      <label for="">Org name</label>
+      <input type="text" class="input-type" pInputText formControlName="address" placeholder="Address" />
+      <label for="">Email</label>
+      <input type="text" class="input-type" pInputText formControlName="city" placeholder="City" />
+
+
+
+      <!-- <p-inputText formControlName="address" placeholder="Address"></p-inputText>
+      <p-inputText formControlName="city" placeholder="City"></p-inputText> -->
+      <button pButton type="button" label="Previous" (click)="previousStep()"></button>
+      <button pButton type="button" label="Next" (click)="nextStep()"></button>
+    </form>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="3">
+    <form [formGroup]="stepThreeForm">
+      <h3>Step 3: Education Information</h3>
+      <label for="">Org name</label>
+      <input type="text" class="input-type" pInputText formControlName="university" placeholder="University" />
+      <label for="">Email</label>
+      <input type="text" class="input-type" pInputText formControlName="degree" placeholder="Degree" />
+
+
+      <!-- <p-inputText formControlName="university" placeholder="University"></p-inputText>
+      <p-inputText formControlName="degree" placeholder="Degree"></p-inputText> -->
+      <button pButton type="button" label="Previous" (click)="previousStep()"></button>
+      <button pButton type="button" label="Next" (click)="nextStep()"></button>
+    </form>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="4">
+    <form [formGroup]="stepFourForm">
+      <h3>Step 4: Confirmation</h3>
+      <p>Review your information:</p>
+      <p>Name: {{ stepOneForm.value.name }}</p>
+      <p>Email: {{ stepOneForm.value.email }}</p>
+      <p>Address: {{ stepTwoForm.value.address }}</p>
+      <p>City: {{ stepTwoForm.value.city }}</p>
+      <p>University: {{ stepThreeForm.value.university }}</p>
+      <p>Degree: {{ stepThreeForm.value.degree }}</p>
+      <button pButton type="button" label="Previous" (click)="previousStep()"></button>
+      <button pButton type="submit" label="Submit"></button>
+    </form>
+  </ng-container>
+</div>
