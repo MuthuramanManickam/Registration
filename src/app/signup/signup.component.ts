@@ -1,4 +1,4 @@
-import { Component ,OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ImportsNotUsedAsValues } from 'typescript';
 
@@ -8,12 +8,9 @@ import { ImportsNotUsedAsValues } from 'typescript';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
-export class SignupComponent  implements OnInit{
+export class SignupComponent implements OnInit {
 
-  // myForm:FormGroup= new FormGroup({
-  //   name: new FormControl('', Validators.required),
-  //   email: new FormControl('', [Validators.required, Validators.email]),
-  // });
+
   myForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
@@ -23,21 +20,21 @@ export class SignupComponent  implements OnInit{
     });
   }
 
-  myGroup:FormGroup = new FormGroup({
-    email: new FormControl('',Validators.required),
-    password:new FormControl('',Validators.required)
+  myGroup: FormGroup = new FormGroup({
+    email: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required)
   })
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   onSubmit() {
     if (this.myForm.valid) {
       const formValue = this.myForm.value;
       const formdet = {
-        name :formValue.name,
-        email:formValue.email
+        name: formValue.name,
+        email: formValue.email
       }
     }
-    
+
 
     // console.log(this.myForm.value);
 
